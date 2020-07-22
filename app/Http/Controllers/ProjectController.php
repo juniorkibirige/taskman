@@ -14,7 +14,6 @@ class ProjectController extends Controller
                                 $query->where('is_completed', 'false');
                             }])
                             ->get();
-        print("Done");
         return $projects->toJson();
     }
 

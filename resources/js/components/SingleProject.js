@@ -2,9 +2,7 @@ import axios from 'axios'
 import React, { Component } from 'react'
 
 class SingleProject extends Component {
-  // this.state = {
-
-  // };
+  
   constructor(props) {
     super(props)
     this.handleCompleted = this.handleCompleted.bind(this)

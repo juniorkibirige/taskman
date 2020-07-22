@@ -31,7 +31,16 @@ class ProjectsList extends Component {
                                     Create new project
                                 </Link>
                                 <ul className='list-group list-group-flush'>
+                                        <Link className='list-group-item list-group-item-action d-flex justify-content-between align-items-center'
+                                            to={`/${projects[0].id}`} key={projects[0].id}
+                                        >
+                                            {projects[0].name}
+                                            <span className='badge badge-primary badge-pill'>
+                                                {projects[0].tasks_count}
+                                            </span>
+                                        </Link>
                                     {projects.map(project => {
+                                        print(project);
                                         <Link className='list-group-item list-group-item-action d-flex justify-content-between align-items-center'
                                             to={`/${project.id}`} key={project.id}
                                         >
