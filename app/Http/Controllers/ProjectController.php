@@ -7,17 +7,20 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index() {
-        $projects = Project::where('is_completed', false)
-                            ->orderBy('created_at', 'desc')
-                            ->withCount(['tasks'=>function($query){
-                                $query->where('is_completed', 'false');
-                            }])
-                            ->get();
+    public function index()
+    {
+        $projects = Project::query()
+            ->where('is_completed', false)
+            ->orderBy('created_at', 'desc')
+            ->withCount(['tasks' => function ($query) {
+                $query->where('is_completed', 'false');
+            }])
+            ->get();
         return $projects->toJson();
     }
 
-    public function store(Request $req) {
+    public function store(Request $req)
+    {
         $validatedData = $req->validate([
             'name' => 'required',
             'description' => 'required',
@@ -31,7 +34,8 @@ class ProjectController extends Controller
         return response()->json('Project created!');
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $project = Project::with(['tasks' => function ($query) {
             $query->where('is_completed', 'false');
         }])->find($id);
@@ -39,7 +43,8 @@ class ProjectController extends Controller
         return $project->toJson();
     }
 
-    public function markAsCompleted(Project $project) {
+    public function markAsCompleted(Project $project)
+    {
         $project->is_completed = true;
         $project->update();
 

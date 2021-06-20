@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class ProjectsList extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             projects: []
         }
@@ -12,6 +12,7 @@ class ProjectsList extends Component {
 
     componentDidMount() {
         axios.get(`/api/projects`).then(response => {
+            console.log(response)
             this.setState({
                 projects: response.data
             })
@@ -40,7 +41,7 @@ class ProjectsList extends Component {
                                             </span>
                                         </Link>
                                     {projects.map(project => {
-                                        print(project);
+                                        console.log(project);
                                         <Link className='list-group-item list-group-item-action d-flex justify-content-between align-items-center'
                                             to={`/${project.id}`} key={project.id}
                                         >
