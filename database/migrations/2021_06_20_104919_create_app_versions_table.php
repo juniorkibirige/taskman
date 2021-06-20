@@ -16,7 +16,8 @@ class CreateAppVersionsTable extends Migration
         Schema::create('app_versions', function (Blueprint $table) {
             $table->id();
             $table->string("app_id")->nullable(false);
-            $table->string("version")->nullable(false);
+            $table->string("android")->nullable(false);
+            $table->string("ios")->nullable(false);
             $table->timestamps();
         });
     }

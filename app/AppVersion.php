@@ -11,7 +11,8 @@ class AppVersion extends Model
 
     protected $fillable = [
         "app_id",
-        "version"
+        "android",
+        "ios"
     ];
 
     protected $dates = [
