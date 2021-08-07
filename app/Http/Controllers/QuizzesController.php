@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Quizes;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class QuizzesController extends Controller
 {
 
-    public function getQuiz(Request $request)
+    public function getQuiz(Request $request): JsonResponse
     {
         $appId = $request['app_id'];
         $quizId = $request['quiz_id'];
