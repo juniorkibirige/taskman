@@ -19,7 +19,7 @@ class OnBoardingController extends Controller
         return response()->json(['status' => (boolean) $app['status']]);
     }
 
-    public function setOnBoardingStatus(Request $request): string
+    public function setOnBoardingStatus(Request $request)
     {
         $appId = $request['app_id'];
         $userId = $request['user_id'];
@@ -29,6 +29,5 @@ class OnBoardingController extends Controller
                 'user_id' => $userId,
                 'app_id' => $appId,
             ]);
-        return response(null, 204);
     }
 }
