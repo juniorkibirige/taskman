@@ -24,6 +24,8 @@ Route::get('/version', 'VersionController@getVersion');
 Route::post('/version', 'VersionController@setVersion');
 Route::get('/quiz', 'QuizzesController@getQuiz');
 Route::post('/quiz', 'QuizzesController@setQuiz');
+Route::get('/on_boarding', 'OnBoardingController@getOnBoardingStatus');
+Route::post('/on_boarding', 'OnBoardingController@setOnBoardingStatus');
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
