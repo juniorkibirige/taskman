@@ -10,6 +10,7 @@ class OnBoarding extends Model
 
     protected $fillable = [
         'user_id',
-        'status'
+        'status',
+        'app_id'
     ];
 }
